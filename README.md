@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project made with:
+- React            https://en.reactjs.org/
+- React Bootstrap  https://react-bootstrap.github.io/
+- EmailJS          https://www.emailjs.com/
 
 ## Available Scripts
 
