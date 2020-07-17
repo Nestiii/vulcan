@@ -14,6 +14,7 @@ import {
 } from 'react-icons-kit/md'
 import logotype from './assets/logotipo_color.png';
 import blackLogotype from './assets/logotipo_negro.png';
+import emailjs from 'emailjs-com';
 
 class MainPage extends Component {
 
@@ -35,6 +36,22 @@ class MainPage extends Component {
         return (this.state.name === undefined || this.state.name === '') ||
         (this.state.email === undefined || this.state.email === '') ||
         (this.state.phone === undefined || this.state.phone === '')
+    }
+
+    handleSubmit = () => {
+        const templateParams = {
+            name: this.state.name,
+            phone: this.state.phone,
+            email: this.state.email,
+            comment: this.state.comment ? this.state.comment : 'No ha enviado comentario',
+        };
+        emailjs.send('vulcan', 'vulcan_contact', templateParams, 'user_HuS7eIH3jKdOYfBr8M5Q5')
+            .then((res) => {
+                console.log('SUCCESS!', res.status, res.text);
+            })
+            .catch((err) => {
+                console.log('FAILED...', err);
+            });
     }
 
     render() {
@@ -88,12 +105,12 @@ class MainPage extends Component {
                         </Row>
                         <Row>
                             <Col className={'comment'}>
-                                <textarea placeholder={'Comentarios'}/>
+                                <textarea placeholder={'Comentarios'} onChange={(e) => this.setState({comment: e.target.value})}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className={'send-contact'}>
-                                <Button disabled={this.disableSubmit()}>ENVIAR MI CONSULTA</Button>
+                                <Button disabled={this.disableSubmit()} onClick={() => this.handleSubmit()}>ENVIAR MI CONSULTA</Button>
                             </Col>
                         </Row>
                     </div>
