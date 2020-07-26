@@ -21,6 +21,9 @@
     right: 2vw;
 
     .phone-floating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 80px;
       width: 80px;
       border: none;
@@ -35,6 +38,9 @@
     }
 
     .wpp-floating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 80px;
       width: 80px;
       border: none;
@@ -111,7 +117,9 @@
           font-size: 3vh;
           color: #F9EDD3;
           border: none;
+          border-radius: 0;
           padding: 20px;
+          outline: none;
         }
       }
     }
@@ -183,10 +191,83 @@
         width: 848px;
         height: 80px;
         border: none;
+        border-radius: 0;
         background-color: #CB3727;
         font-size: 40px;
         font-family: Manufaktur-Bold, sans-serif;
         color: #F9EDD3;
+        outline: none;
+      }
+    }
+  }
+
+  .products-container{
+    background-color: #19191C;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+
+    .products-title{
+      display: flex;
+      justify-content: center;
+      font-family: Manufaktur-Bold, sans-serif;
+      font-size: 80px;
+      color: #E6BE20;
+      margin-bottom: 50px;
+    }
+
+    .product-container{
+      display: flex;
+      justify-content: center;
+
+      .product{
+        width: 380px;
+        display: flex;
+        flex-direction: column;
+
+        .product-name{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 10px;
+
+          .name{
+            font-family: Manufaktur-Bold, sans-serif;
+            color: #F9EDD3;
+            font-size: 50px;
+          }
+
+          .description{
+            font-family: Manufaktur-Medium, sans-serif;
+            color: white;
+            font-size: 30px;
+          }
+        }
+
+        .product-image{
+          height: 440px;
+          background-color: #F9EDD3;
+
+          img{
+            height: 440px;
+            width: 380px;
+          }
+        }
+
+        .more-details{
+          button{
+            border-radius: 0;
+            height: 80px;
+            width: 100%;
+            border: none;
+            color: #F9EDD3;
+            background-color: #CB3727;
+            outline: none;
+            font-family: Manufaktur-Bold, sans-serif;
+            font-size: 30px;
+          }
+        }
       }
     }
   }
@@ -287,10 +368,12 @@
         width: 400px;
         height: 80px;
         border: none;
+        border-radius: 0;
         background-color: #CB3727;
         font-size: 40px;
         font-family: Manufaktur-Bold, sans-serif;
         color: #F9EDD3;
+        outline: none;
       }
     }
   }

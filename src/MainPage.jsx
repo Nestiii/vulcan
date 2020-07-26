@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './MainPage.scss'
-import {Container, Row, Col, Image, Button} from "react-bootstrap";
+import {Container, Row, Col, Image, Button, Overlay} from "react-bootstrap";
 import {Icon} from "react-icons-kit";
 import {whatsapp, phone} from 'react-icons-kit/fa';
 import {
@@ -15,6 +15,9 @@ import {
 import logotype from './assets/logotipo_color.png';
 import blackLogotype from './assets/logotipo_negro.png';
 import emailjs from 'emailjs-com';
+import img1 from './assets/92017251_634185094088547_5174429634584968870_n.jpg';
+import img2 from './assets/103300266_281518622893187_691887325705316298_n.jpg';
+import img3 from './assets/lanin_cuadrado.jpg';
 
 class MainPage extends Component {
 
@@ -24,8 +27,14 @@ class MainPage extends Component {
             name: undefined,
             phone: undefined,
             email: undefined,
-            comment: undefined
-        }
+            comment: undefined,
+            showP1: false,
+            showP2: false,
+            showP3: false
+        };
+        this.buttonRef1 = React.createRef();
+        this.buttonRef2 = React.createRef();
+        this.buttonRef3 = React.createRef();
     }
 
     scrollToContact = () => {
@@ -34,8 +43,8 @@ class MainPage extends Component {
 
     disableSubmit = () => {
         return (this.state.name === undefined || this.state.name === '') ||
-        (this.state.email === undefined || this.state.email === '') ||
-        (this.state.phone === undefined || this.state.phone === '')
+            (this.state.email === undefined || this.state.email === '') ||
+            (this.state.phone === undefined || this.state.phone === '')
     }
 
     handleSubmit = () => {
@@ -58,12 +67,12 @@ class MainPage extends Component {
         return (
             <Container className={'main-container'} fluid>
                 <div className={'floating-buttons'}>
-                    <button className={'phone-floating'}>
-                        <Icon icon={phone} size={45}/>
-                    </button>
-                    <button className={'wpp-floating'}>
+                    <div className={'phone-floating'} onClick={() => window.open("tel:+5401141697397")}>
+                        <Icon icon={phone} size={45} style={{color: "black"}}/>
+                    </div>
+                    <div className={'wpp-floating'} onClick={() => window.open("")}>
                         <Icon icon={whatsapp} size={45}/>
-                    </button>
+                    </div>
                 </div>
                 <Container className={'hero-container'} fluid>
                     <Container className={'hero-wrapper'} fluid>
@@ -85,6 +94,309 @@ class MainPage extends Component {
                         </Row>
                     </Container>
                 </Container>
+                <Container className={'products-container'} fluid>
+                    <Row>
+                        <Col className={'products-title'}>
+                            <span>MODELOS</span>
+                        </Col>
+                    </Row>
+                    <div className={'products-wrapper'}>
+                        <Row>
+                            <Col className={'product-container'}>
+                                <div className={'product'}>
+                                    <div className={'product-name'}>
+                                        <span className={'name'}>CHAITÉN</span>
+                                        <span className={'description'}>HORNO PIZZERO</span>
+                                    </div>
+                                    <div className={'product-image'}>
+                                        <Image src={img1}/>
+                                    </div>
+                                    <div className={'more-details'}>
+                                        <button
+                                            onClick={() => this.setState({showP1: !this.state.showP1})}
+                                            ref={this.buttonRef1}
+                                        >
+                                            MÁS INFORMACIÓN
+                                        </button>
+                                        <Overlay target={this.buttonRef1.current} show={this.state.showP1}
+                                                 placement="top">
+                                            {({placement, arrowProps, show: _show, popper, ...props}) => (
+                                                <div
+                                                    {...props}
+                                                    style={{
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                                        color: 'white',
+                                                        borderRadius: 0,
+                                                        height: 440,
+                                                        width: 380,
+                                                        display: 'flex',
+                                                        flexDirection: 'column',
+                                                        justifyContent: 'center',
+                                                        paddingLeft: 50,
+                                                        fontSize: 30,
+                                                        ...props.style,
+                                                    }}
+                                                >
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            DIÁMETRO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            1 M
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            PESO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            80 KG
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ALTURA:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ESPESOR:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            MATERIAL:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            HIERRO
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </Overlay>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col className={'product-container'}>
+                                <div className={'product'}>
+                                    <div className={'product-name'}>
+                                        <span className={'name'}>LANÍN</span>
+                                        <span className={'description'}>FOGONERO</span>
+                                    </div>
+                                    <div className={'product-image'}>
+                                        <Image src={img2}/>
+                                    </div>
+                                    <div className={'more-details'}>
+                                        <button
+                                            onClick={() => this.setState({showP2: !this.state.showP2})}
+                                            ref={this.buttonRef2}
+                                        >
+                                            MÁS INFORMACIÓN
+                                        </button>
+                                        <Overlay target={this.buttonRef2.current} show={this.state.showP2}
+                                                 placement="top">
+                                            {({placement, arrowProps, show: _show, popper, ...props}) => (
+                                                <div
+                                                    {...props}
+                                                    style={{
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                                        padding: '2px 10px',
+                                                        color: 'white',
+                                                        borderRadius: 0,
+                                                        height: 440,
+                                                        width: 380,
+                                                        display: 'flex',
+                                                        flexDirection: 'column',
+                                                        justifyContent: 'center',
+                                                        paddingLeft: 50,
+                                                        fontFamily: 'Manufaktur-Medium, sans-serif',
+                                                        fontSize: 30,
+                                                        ...props.style,
+                                                    }}
+                                                >
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            DIÁMETRO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            1 M
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            PESO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            80 KG
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ALTURA:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ESPESOR:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            MATERIAL:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            HIERRO
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </Overlay>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col className={'product-container'}>
+                                <div className={'product'}>
+                                    <div className={'product-name'}>
+                                        <span className={'name'}>TAMBORA</span>
+                                        <span className={'description'}>FOGONERO</span>
+                                    </div>
+                                    <div className={'product-image'}>
+                                        <Image src={img3}/>
+                                    </div>
+                                    <div className={'more-details'}>
+                                        <button
+                                            onClick={() => this.setState({showP3: !this.state.showP3})}
+                                            ref={this.buttonRef3}
+                                        >
+                                            MÁS INFORMACIÓN
+                                        </button>
+                                        <Overlay target={this.buttonRef3.current} show={this.state.showP3}
+                                                 placement="top">
+                                            {({placement, arrowProps, show: _show, popper, ...props}) => (
+                                                <div
+                                                    {...props}
+                                                    style={{
+                                                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                                        padding: '2px 10px',
+                                                        color: 'white',
+                                                        borderRadius: 0,
+                                                        height: 440,
+                                                        width: 380,
+                                                        display: 'flex',
+                                                        flexDirection: 'column',
+                                                        justifyContent: 'center',
+                                                        paddingLeft: 50,
+                                                        fontFamily: 'Manufaktur-Medium, sans-serif',
+                                                        fontSize: 30,
+                                                        ...props.style,
+                                                    }}
+                                                >
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            DIÁMETRO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            1 M
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            PESO:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            80 KG
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ALTURA:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            ESPESOR:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            50 CM
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span style={{
+                                                            fontFamily: 'Manufaktur-Bold, sans-serif',
+                                                            marginRight: 10
+                                                        }}>
+                                                            MATERIAL:
+                                                        </span>
+                                                        <span style={{fontFamily: 'Manufaktur-Medium, sans-serif'}}>
+                                                            HIERRO
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </Overlay>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </Container>
                 <Container className={'contact-us-container'} fluid id={'contact'}>
                     <Row>
                         <Col className={'contact-us-title'}>
@@ -97,7 +409,8 @@ class MainPage extends Component {
                                 <input placeholder={'Nombre'} onChange={(e) => this.setState({name: e.target.value})}/>
                             </Col>
                             <Col className={'phone'} md={2}>
-                                <input placeholder={'Teléfono'} onChange={(e) => this.setState({phone: e.target.value})}/>
+                                <input placeholder={'Teléfono'}
+                                       onChange={(e) => this.setState({phone: e.target.value})}/>
                             </Col>
                             <Col className={'email'} md={5}>
                                 <input placeholder={'Email'} onChange={(e) => this.setState({email: e.target.value})}/>
@@ -105,12 +418,14 @@ class MainPage extends Component {
                         </Row>
                         <Row>
                             <Col className={'comment'}>
-                                <textarea placeholder={'Comentarios'} onChange={(e) => this.setState({comment: e.target.value})}/>
+                                <textarea placeholder={'Comentarios'}
+                                          onChange={(e) => this.setState({comment: e.target.value})}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col className={'send-contact'}>
-                                <Button disabled={this.disableSubmit()} onClick={() => this.handleSubmit()}>ENVIAR MI CONSULTA</Button>
+                                <Button disabled={this.disableSubmit()} onClick={() => this.handleSubmit()}>ENVIAR MI
+                                    CONSULTA</Button>
                             </Col>
                         </Row>
                     </div>
