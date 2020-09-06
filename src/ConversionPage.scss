@@ -1,0 +1,51 @@
+.main-container {
+  background-image: url("./assets/heroimage.jpg");
+  background-color: #19191C;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+
+  .conversion-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .thanks{
+      font-family: Manufaktur-Bold, sans-serif;
+      font-size: 100px;
+      color: #E6BE20;
+    }
+
+    .thanks-message{
+      font-family: Manufaktur-Medium, sans-serif;
+      font-size: 40px;
+      color: white;
+      width: 850px;
+    }
+
+    button{
+      width: 200px;
+      height: 70px;
+      border: none;
+      background-color: #CB3727;
+      color: #F9EDD3;
+      font-size: 30px;
+      font-family: Manufaktur-Bold, sans-serif;
+      margin-top: 50px;
+      outline: none;
+    }
+  }
+}

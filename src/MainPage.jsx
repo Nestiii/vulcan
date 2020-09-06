@@ -18,6 +18,7 @@ import emailjs from 'emailjs-com';
 import img1 from './assets/92017251_634185094088547_5174429634584968870_n.jpg';
 import img2 from './assets/103300266_281518622893187_691887325705316298_n.jpg';
 import img3 from './assets/lanin_cuadrado.jpg';
+import Particles from "react-particles-js";
 
 class MainPage extends Component {
 
@@ -75,6 +76,119 @@ class MainPage extends Component {
                     </div>
                 </div>
                 <Container className={'hero-container'} fluid>
+                    <Particles
+                        style={{position: 'absolute'}}
+                        params={{
+                            "particles": {
+                                "number": {
+                                    "value": 50,
+                                    "density": {
+                                        "enable": true,
+                                        "value_area": 800
+                                    }
+                                },
+                                "color": {
+                                    "value": "#ffa400"
+                                },
+                                "shape": {
+                                    "type": "circle",
+                                    "stroke": {
+                                        "width": 0.5,
+                                        "color": "#ffb700"
+                                    },
+                                    "polygon": {
+                                        "nb_sides": 5
+                                    },
+                                    "image": {
+                                        "src": "img/github.svg",
+                                        "width": 100,
+                                        "height": 100
+                                    }
+                                },
+                                "opacity": {
+                                    "value": 1,
+                                    "random": false,
+                                    "anim": {
+                                        "enable": false,
+                                        "speed": 1,
+                                        "opacity_min": 0.1,
+                                        "sync": false
+                                    }
+                                },
+                                "size": {
+                                    "value": 2,
+                                    "random": false,
+                                    "anim": {
+                                        "enable": true,
+                                        "speed": 10,
+                                        "size_min": 0.5,
+                                        "sync": false
+                                    }
+                                },
+                                "line_linked": {
+                                    "enable": false,
+                                    "distance": 157.82952832645452,
+                                    "color": "#ffffff",
+                                    "opacity": 0.4,
+                                    "width": 1
+                                },
+                                "move": {
+                                    "enable": true,
+                                    "speed": 10,
+                                    "direction": "top-right",
+                                    "random": false,
+                                    "straight": false,
+                                    "out_mode": "out",
+                                    "bounce": false,
+                                    "attract": {
+                                        "enable": false,
+                                        "rotateX": 600,
+                                        "rotateY": 1200
+                                    }
+                                }
+                            },
+                            "interactivity": {
+                                "detect_on": "canvas",
+                                "events": {
+                                    "onhover": {
+                                        "enable": true,
+                                        "mode": "repulse"
+                                    },
+                                    "onclick": {
+                                        "enable": false,
+                                        "mode": "bubble"
+                                    },
+                                    "resize": true
+                                },
+                                "modes": {
+                                    "grab": {
+                                        "distance": 179.82017982017982,
+                                        "line_linked": {
+                                            "opacity": 0.3561858966575193
+                                        }
+                                    },
+                                    "bubble": {
+                                        "distance": 255.80432187492372,
+                                        "size": 12.181158184520177,
+                                        "duration": 0.24362316369040352,
+                                        "opacity": 1,
+                                        "speed": 3
+                                    },
+                                    "repulse": {
+                                        "distance": 100,
+                                        "duration": 0.4
+                                    },
+                                    "push": {
+                                        "particles_nb": 4
+                                    },
+                                    "remove": {
+                                        "particles_nb": 2
+                                    }
+                                }
+                            },
+                            "retina_detect": true
+                        }}
+                    />
                     <Container className={'hero-wrapper'} fluid>
                         <Row>
                             <Col className={'logotype-container'}>
